@@ -35,10 +35,12 @@ emotes = {
 	'Pepe 2':['saved', 'scam', 'simp', 'thefuck', 'think', 'wut', 'yikes'],
 	'Pepe 3':['comfy', 'evil', 'fbi', 'fuckyou', 'idk', 'mlady'],
 	'Pepe 4':['banhammer', 'bruh','sadge', 'clown','hoodie', 'coffee'],
-	'Profiles and Misc':['bob', 'brian', 'eminem', 'homesick', 'megz','bump','test'],
+	'Profiles':['bob', 'brian', 'eminem', 'homesick', 'megz'],
+	'Extra':['bump','test','shrek'],
 	};
 var a = Object.getOwnPropertyNames(emotes);
-for (var i = 0, max = a.length; i < max; i++) {
+for (var i = 0, max = a.length; i < max+2; i++) {
+	console.log(Object.keys(emotes)[i]);
 	var table = document.createElement('table');
 	table.setAttribute('id', 'emotelist');
 	var tr = document.createElement('tr');
