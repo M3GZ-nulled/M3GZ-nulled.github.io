@@ -1,1 +1,74 @@
-<html><body>test</body></html>
+<html>
+<head>
+<style>
+#emotelist {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  text-align: center;
+  display: inline-block;
+  float: left;
+  padding: 10px;
+}
+
+#emotelist td, #emotelist th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#emotelist tr:nth-child(even){background-color: #f2f2f2;}
+
+#emotelist tr:hover {background-color: #ddd;}
+
+#emotelist th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  background-color: #4CAF50;
+  color: white;
+}
+</style>
+</head>
+<body></body>
+<script>
+emotes = {
+	'Misc':['kappalul', 'oke', 'yes', 'no', 'cry', 'sleepo', 'sleepov2', 'demfeels', 'yuginou', 'eyes'],
+	'Pepe 1':['bye','pepedance', 'pepehey', 'pepehide', 'pepelaugh', 'pepewine', 'rigged'],
+	'Pepe 2':['saved', 'scam', 'simp', 'thefuck', 'think', 'wut', 'yikes'],
+	'Pepe 3':['comfy', 'evil', 'fbi', 'fuckyou', 'idk', 'mlady'],
+	'Pepe 4':['banhammer', 'bruh','sadge', 'clown','hoodie', 'coffee'],
+	'Profiles and Misc':['bob', 'brian', 'eminem', 'homesick', 'megz','bump','test'],
+	};
+var a = Object.getOwnPropertyNames(emotes);
+for (var i = 0, max = a.length; i < max; i++) {
+	var table = document.createElement('table');
+	table.setAttribute('id', 'emotelist');
+	var tr = document.createElement('tr');
+	var td1 = document.createElement('th');
+	var td2 = document.createElement('th');
+	var text1 = document.createTextNode(Object.keys(emotes)[i]);
+	var text2 = document.createTextNode('Preview');
+	td1.appendChild(text1);
+	td2.appendChild(text2);
+	tr.appendChild(td1);
+	tr.appendChild(td2);
+	table.appendChild(tr);
+	for (var j = 0, max = emotes[Object.keys(emotes)[i]].length; j < max; j++) {
+		tr = document.createElement('tr');
+
+		td1 = document.createElement('td');
+		td2 = document.createElement('td');
+
+		text1 = document.createTextNode(emotes[Object.keys(emotes)[i]][j]);
+		var img = document.createElement("img");
+		img.src = "https://raw.githubusercontent.com/M3GZ-nulled/nulled-emotes/main/resources/".concat(emotes[Object.keys(emotes)[i]][j],'.gif');
+
+		td1.appendChild(text1);
+		td2.appendChild(img);
+		tr.appendChild(td1);
+		tr.appendChild(td2);
+
+		table.appendChild(tr);
+	}
+	document.body.appendChild(table);
+}
+</script>
+</html>
