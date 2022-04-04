@@ -1,8 +1,8 @@
-import requests,urllib.request,socket,PySimpleGUI as sg,threading, pyperclip, pyglet
+import requests,urllib.request,socket,PySimpleGUI as sg,threading,pyperclip,pyglet
 from webbrowser import open as web
 from datetime import datetime
 
-pyglet.font.add_file('.\\visby.otf')
+pyglet.font.add_file('visby.otf')
 font = 'visby 12'
 
 sg.theme('DarkBlue17')
@@ -37,7 +37,7 @@ def create_window():
     protocols = {0:'http', 1:'https', 2:'socks4', 3:'socks5', 4:'http', 5:'https'}
 
     lay_get = [
-        [sg.T('Country Code:'), sg.In('All', size=(4,1), key='_CONT_'), sg.T('Anonimity:'), sg.Combo(['All', 'Elite', 'Anonymous', 'Transparent'], 'All', size=(12,1), key='_ANON_', readonly=True)],
+        [sg.T('Country Code:'), sg.In('All', size=(4,1), key='_CONT_'), sg.P(), sg.T('Anonimity:'), sg.Combo(['All', 'Elite', 'Anonymous', 'Transparent'], 'All', size=(12,1), key='_ANON_', readonly=True)],
         [sg.T('Protocol:'), sg.Radio('HTTP','_PROTORAD_'), sg.Radio('HTTPS','_PROTORAD_',default=True), sg.Radio('SOCKS4','_PROTORAD_'), sg.Radio('SOCKS5','_PROTORAD_')],
         [sg.T('Speed:'), sg.Slider((1,4), size=(20,10), orientation='h', disable_number_display=True, expand_x=True, enable_events=True, key='_SPEED_'),sg.T(' All', size=(8,1), relief=sg.RELIEF_SUNKEN, key='_SPEED_SHOW_')],
         [sg.T('  '), sg.B('Get Free Proxies!', key='_GET_',size=(20,1)), sg.P(), sg.T('Total Proxies:    '), sg.T(' 1', relief=sg.RELIEF_SUNKEN, key='_LEN_', size=(6,1)), sg.P()],
@@ -101,7 +101,6 @@ def create_window():
             proxies = ('\n'.join(['{}:{}'.format(x['ip'], x['port']) for x in prox_gn]) + '\n' + requests.get(url_proxyscrape).text).strip()
             w['_LEN_'].update(' {}'.format(len(proxies.split())))
             w['_PROX_SHOW_'].update(proxies)
-            print(url_geonode, url_proxyscrape)
         if e.startswith('_M'): web('https://www.nulled.to/user/4103370-m3gz')
         if e == '_R_': web('https://www.nulled.to/topic/1308515-list-of-releases/')
 
